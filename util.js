@@ -24,12 +24,13 @@ validate(fields) // true
 const toInt = obj => ~~obj
 
 
-cons runCode = callback => {
+const runCode = callback => {
   try {
     callback()
   } catch (e) {
     window.location.href =
       "http://stackoverflow.com/search?q=[js]+" + e.message;
   }
-
 }
+
+const margeArr = (...arr) => Array.from(new Set([].concat(...arr)))

@@ -1,13 +1,13 @@
-const isNumber = number => number === +number
+export const isNumber = number => number === +number
 
 
-const sumArr = arr => arr.reduce((pre, cur) => pre + cur, 0)
+export const sumArr = arr => arr.reduce((pre, cur) => pre + cur, 0)
 
 /**
  * 
  * @param fields 
  */
-const validate = fields => fields.every(field => field.isValidate())
+export const validate = fields => fields.every(field => field.isValidate())
 /*
 let fields = [
   {isValidate: () => true},
@@ -21,10 +21,10 @@ fields[1].isValidate = () => true
 validate(fields) // true
 */
 
-const toInt = obj => ~~obj
+export const toInt = obj => ~~obj
 
 
-const runCode = callback => {
+export const runCode = callback => {
   try {
     callback()
   } catch (e) {
@@ -33,4 +33,5 @@ const runCode = callback => {
   }
 }
 
-const margeArr = (...arr) => Array.from(new Set([].concat(...arr)))
+export const margeArr = (...arr) => Array.from(new Set([].concat(...arr)))
+

@@ -1,11 +1,14 @@
-let sleep = milliSecond => new Promise(resolve => {
-  setTimeout(resolve, milliSecond)
-})
-let delay = async milliSecond => {
-  let start = new Date().getTime()
-  console.log('Task started')
-  await sleep(milliSecond)
-  let end = new Date().getTime()
-  console.log('Task ended, cost %s', end - start)
-}
-delay(1000) // 1002
+var o = [1,2,3]
+
+Object.defineProperty(o, "pow", { 
+  get: function() {
+    return Math.pow(this.number, this.index)
+  } ,
+  set: function(index) {
+    this.index = index
+  }
+});
+
+console.log(o.pow) // 9
+o.pow = 3
+console.log(o.pow) // 27

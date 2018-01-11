@@ -1,7 +1,7 @@
-const validateEvery = func => validateArr => Array.prototype.every(validate => func(validate.input) === validate.output)
-const perfermanceTime = func => arg => {
+const validateEvery = func => validateArr => validateArr.every(validate => validate)
+const perfermanceTime = func => {
   let startTime = (new Date()).getTime()
-  func(arg)
+  func()
   return (new Date()).getTime() - startTime
 }
 class Test {
@@ -13,8 +13,8 @@ class Test {
     return this
   }
   perfermance(perfermanceArr) {
-    perfermanceArr.forEach(input => {
-      console.log(`input: ${input}, cost ${perfermanceTime(this.func)(input)}`)
+    perfermanceArr.forEach(func => {
+      console.log(`cost ${perfermanceTime(func)}`)
     })
     return this
   }

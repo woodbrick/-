@@ -13,8 +13,10 @@ const fib = index => {
   return index > 0 ? fibSub(index) : 0
 }
 
-let validateArr = [0, 1, 1, 2, 3, 5, 8, 13, 21].map((n, i) => ({input: i, output: n}))
-let performanceArr = [10, 100, 1000]
+let validateArr = [0, 1, 1, 2, 3, 5, 8, 13, 21].map((n, i) => () => fib(i) === n)
+let performanceArr = [10, 100, 1000].map(n => () => {
+  console.log(`performance fib(${n})=${fib(n)}`)
+})
 
 test.resolve(fib)
 .validate(validateArr)
